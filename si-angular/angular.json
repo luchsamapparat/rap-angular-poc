@@ -7,7 +7,7 @@
       "root": "apps/si-angular/",
       "sourceRoot": "apps/si-angular/src",
       "projectType": "application",
-      "prefix": "apps/si-angular",
+      "prefix": "si",
       "schematics": {},
       "architect": {
         "build": {
