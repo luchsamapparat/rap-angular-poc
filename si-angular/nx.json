@@ -7,5 +7,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "si-angular": {
+      "tags": []
+    },
+    "si-angular-e2e": {
+      "tags": []
+    }
+  }
 }
