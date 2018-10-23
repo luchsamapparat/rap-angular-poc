@@ -1,2 +1,4 @@
 com.eclipsesource.rap.examples.maven/target/
 .idea
+com.eclipsesource.rap.examples.maven/src/main/webapp/rwt-resources/
+com.eclipsesource.rap.examples.maven/src/main/resources/
