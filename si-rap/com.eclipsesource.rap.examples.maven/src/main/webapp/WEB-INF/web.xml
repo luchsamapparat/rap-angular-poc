@@ -19,6 +19,6 @@
 
 	<servlet-mapping>
 		<servlet-name>rwtServlet</servlet-name>
-		<url-pattern>/maven_example</url-pattern>
+		<url-pattern>/example</url-pattern>
 	</servlet-mapping>
-</web-app> 
+</web-app>

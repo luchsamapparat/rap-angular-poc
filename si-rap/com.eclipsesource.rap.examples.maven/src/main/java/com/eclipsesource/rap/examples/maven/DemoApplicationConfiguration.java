@@ -12,7 +12,7 @@ public class DemoApplicationConfiguration implements ApplicationConfiguration {
 	public void configure(Application application) {
 		Map<String, String> properties = new HashMap<String, String>();
 		properties.put(WebClient.PAGE_TITLE, "RAP Maven Demo");
-		application.addEntryPoint("/maven_example", DemoApplication.class, properties );
-	}
+		application.addEntryPoint("/example", DemoApplication.class, properties );
 
+	}
 }
