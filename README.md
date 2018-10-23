@@ -1,12 +1,17 @@
 # Eclipse RAP / Angular Proof of Concept
 
+## Requirements
+* Maven
+* Node 8
+* npm 6
+
 ## RAP with Angular
 ```
 ./si-angular> npm install
 ./si-angular> npm run build
-./si-angular> npm run build deploy-to-rap
+./si-angular> npm run deploy-to-rap
 
-./si-rap> mvn clean jetty:run
+./si-rap/com.eclipsesource.rap.examples.maven> mvn clean jetty:run
 ```
 
 ## Angular without RAP
