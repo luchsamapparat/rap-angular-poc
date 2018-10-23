@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CounterService } from '../counter.service';
 
 @Component({
-  selector: 'si-component-two',
-  templateUrl: './component-two.component.html',
-  styleUrls: ['./component-two.component.css']
+    selector: '[si-entry-id="si-component-two"]',
+    templateUrl: './component-two.component.html',
+    styleUrls: ['./component-two.component.css']
 })
-export class ComponentTwoComponent implements OnInit {
+export class ComponentTwoComponent {
 
-  constructor() { }
+    number$: Observable<number>;
 
-  ngOnInit() {
-  }
+    constructor(
+        private counterService: CounterService
+    ) {
+        this.number$ = counterService.number$;
+    }
 
 }

@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { CounterService } from '../counter.service';
 
 @Component({
-  selector: 'si-component-one',
-  templateUrl: './component-one.component.html',
-  styleUrls: ['./component-one.component.css']
+    selector: '[si-entry-id="si-component-one"]',
+    templateUrl: './component-one.component.html',
+    styleUrls: ['./component-one.component.css']
 })
-export class ComponentOneComponent implements OnInit {
+export class ComponentOneComponent {
 
-  constructor() { }
+    constructor(
+        private counterService: CounterService
+    ) { }
 
-  ngOnInit() {
-  }
+    @HostListener('click')
+    onClick() {
+        this.counterService.count();
+    }
 
 }

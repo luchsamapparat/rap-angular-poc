@@ -1,25 +1,36 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CounterService } from '../counter.service';
 import { ComponentOneComponent } from './component-one.component';
 
+
 describe('ComponentOneComponent', () => {
-  let component: ComponentOneComponent;
-  let fixture: ComponentFixture<ComponentOneComponent>;
+    let component: ComponentOneComponent;
+    let fixture: ComponentFixture<ComponentOneComponent>;
+    let counterService: CounterService;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ComponentOneComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ComponentOneComponent],
+            providers: [
+                CounterService
+            ]
+        })
+            .compileComponents();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ComponentOneComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        counterService = TestBed.get(CounterService);
+    }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ComponentOneComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('counts on click', () => {
+        const spy = spyOn(counterService, 'count');
+
+        fixture.componentInstance.onClick();
+
+        expect(spy).toHaveBeenCalled();
+    });
 });
