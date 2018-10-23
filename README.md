@@ -26,7 +26,7 @@ Run tests
 CLI commands to generate Angular app, components and service.
 
 ```
-create-nx-workspace.cmd si-angular
+create-nx-workspace si-angular
 ng generateenerate application si-angular
 ng generate component component-one --entry-component --project si-angular
 ng generate component component-two --entry-component --project si-angular
