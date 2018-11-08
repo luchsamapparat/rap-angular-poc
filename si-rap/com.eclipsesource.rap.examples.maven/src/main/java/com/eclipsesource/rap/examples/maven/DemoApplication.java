@@ -5,6 +5,8 @@ import org.eclipse.rap.rwt.application.EntryPoint;
 import org.eclipse.rap.rwt.client.service.JavaScriptExecutor;
 import org.eclipse.rap.rwt.widgets.WidgetUtil;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.layout.GridLayout;
@@ -51,9 +53,20 @@ public class DemoApplication implements EntryPoint {
         setEntryId(container2, "si-component-two");
         container2.setText("Loading component #2");
 
+        Button bootstrapButton = new Button(mainShell, SWT.NONE);
+        bootstrapButton.setText("Bootstrap components");
+        bootstrapButton.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent arg0) {
+                JavaScriptExecutor executor = RWT.getClient().getService(JavaScriptExecutor.class);
+                executor.execute("window.bootstrapComponentOne();");
+                executor.execute("window.bootstrapComponentTwo();");
+            }
+        });
 
         mainShell.layout();
 		mainShell.open();
+
 		return 0;
 	}
 

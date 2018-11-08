@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ApplicationRef, NgModule, NgZone } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NxModule } from '@nrwl/nx';
 import { ComponentOneComponent } from './component-one/component-one.component';
@@ -18,13 +18,24 @@ import { CounterService } from './counter.service';
     providers: [
         CounterService
     ],
-    bootstrap: [
-        ComponentOneComponent,
-        ComponentTwoComponent
-    ],
+    bootstrap: [],
     entryComponents: [
         ComponentOneComponent,
         ComponentTwoComponent
     ]
 })
-export class AppModule { }
+export class AppModule {
+    constructor(
+        private ngZone: NgZone,
+        private applicationRef: ApplicationRef
+    ) {}
+
+    ngDoBootstrap() {
+        window['bootstrapComponentOne'] = () => this.bootstrapComponent(ComponentOneComponent);
+        window['bootstrapComponentTwo'] = () => this.bootstrapComponent(ComponentTwoComponent);
+    }
+
+    bootstrapComponent(Component) {
+        this.ngZone.run(() => this.applicationRef.bootstrap(Component));
+    }
+}

@@ -8,15 +8,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-    <script>
-        window.rap = {
-            on: (event, handler) => handler()
-        };
-    </script>
 </head>
 
 <body>
+    <p>
+        <button id="bootstrap-component-one-btn">Bootstrap Component #1</button>
+        <button id="bootstrap-component-two-btn">Bootstrap Component #2</button>
+    </p>
     <section>
         <h1>Component #1</h1>
         <div si-entry-id="si-component-one"></div>
@@ -25,6 +23,14 @@
         <h1>Component #2</h1>
         <div si-entry-id="si-component-two"></div>
     </section>
+
+    <script>
+        document.getElementById('bootstrap-component-one-btn')
+            .addEventListener('click', () => window.bootstrapComponentOne());
+
+        document.getElementById('bootstrap-component-two-btn')
+            .addEventListener('click', () => window.bootstrapComponentTwo());
+    </script>
 </body>
 
 </html>
